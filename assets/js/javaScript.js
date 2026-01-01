@@ -25,9 +25,15 @@ displayCitesName();
 
 document.querySelector(".form-select").addEventListener("change", async (e) => {
   try {
+
+    document.querySelector(".loading").classList.remove("d-none");
     const response = await axios.get(
       `https://api.aladhan.com/v1/timingsByCity/01-01-2026?city=${e.target.value}&country=Palestine&method=2`
     );
+
+        document.querySelector(".loading").classList.add("d-none");
+
+
 
     document.querySelector(".cityName").textContent = e.target.value;
     document.querySelector(".ourDate").textContent =
